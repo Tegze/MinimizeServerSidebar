@@ -2,10 +2,11 @@ window.onload = mouseOver();
 
 function mouseOver() {
 	var minimizeServerTab = document.getElementById("minimizeServerTab");
-	minimizeServerTab.onmouseenter = function() {
+	consol.log("foundID");
+	minimizeServerTab.onmouseover = function() {
 		console.log("mousein");
 	};
-	minimizeServerTab.onmouseleave = function() {
+	minimizeServerTab.onmouseout = function() {
 		
 	};
 	
