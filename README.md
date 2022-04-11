@@ -1,2 +1,2 @@
-# HideServers
-BetterDiscord plugin to hide server bar
+# MinimizeServerTab
+BetterDiscord plugin to hide the server bar
