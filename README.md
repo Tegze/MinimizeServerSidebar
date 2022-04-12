@@ -1,6 +1,6 @@
 # MinimizeServerTab
-⛔️ OBSOLETE
+⛔️ OBSOLETE - Use latest release
 
-First private release of MinimizeServerTab
-<br> This build was released privately on May 23, 2021
-<br> This version is not compatable with the latest version of discord
+Private release of MinimizeServerTab
+<br> This build was released privately on Febuary 8, 2022
+<br> Major crash issue releated to switchig servers
