@@ -1,5 +1,5 @@
-# MinimizeServerTab
-BetterDiscord plugin to hide the server bar
+# MinimizeServerSidebar
+BetterDiscord plugin to hide the server sidebar
 
 Latest version:
 [v1.1.0-release](https://github.com/Tegze/MinimizeServerTab/releases/tag/v1.1.0-release)
