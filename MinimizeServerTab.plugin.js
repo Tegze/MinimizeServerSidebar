@@ -2,16 +2,31 @@
  *@name MinimizeServerTab
  *@author Tegze
  *@description Shows the server selector tab on hover
- *@version 1.0.0
+ *@version 1.0.5
  *@authorLink https://twitter.com/ItsTegze
  **/
 
 module.exports = class MinimizeServerTab {
 
 	start() {
-		var minimizeServerTab = document.getElementById("minimizeServerTab");
+		this.load();
+		//container-1eFtFS is "wrapper-1_HaEi guilds-2JjMmN" parent
+		// wrapper-1_HaEi guilds-2JjMmN is Servers sidebar
+	}
+
+	stop() {
+		let minimizeServerTab = document.getElementById("minimizeServerTab");
+		let container = document.getElementsByClassName("container-1eFtFS")[0];
+		let wrapped = document.getElementsByClassName("wrapper-1_HaEi guilds-2JjMmN")[0];
+		container.insertBefore(wrapped, minimizeServerTab);
+		minimizeServerTab.remove();
+		BdApi.clearCSS("MinimizeServerTabCSS");
+	}
+
+	load() {
+		let minimizeServerTab = document.getElementById("minimizeServerTab");
 		if (minimizeServerTab === null) {
-			var wrapped = document.getElementsByClassName("wrapper-3NnKdC guilds-1SWlCJ")[0];
+			let wrapped = document.getElementsByClassName("wrapper-1_HaEi guilds-2JjMmN")[0];
 			minimizeServerTab = document.createElement("div");
 			minimizeServerTab.id = "minimizeServerTab";
 			wrapped.parentNode.insertBefore(minimizeServerTab, wrapped);
@@ -20,32 +35,20 @@ module.exports = class MinimizeServerTab {
 			BdApi.injectCSS("MinimizeServerTabCSS", `
 			#minimizeServerTab {
   				position: absolute;
-  				width: 50px; 							/*Change px to set the hover hitbox size | Default: 50px*/
+  				width: 40px; 							/*Change px to set the hover hitbox size | Default: 50px*/
  				height: calc(100% - 52px);				/*~~THESE VALUES MUST REMAIN THE SAME~~ Change px to reduce hitbox height | Default: 52px*/
   				z-index: 10;
 			}
-			#minimizeServerTab:hover .wrapper-3NnKdC {
- 				width: 72px;
+			#minimizeServerTab:hover .wrapper-1_HaEi {
+				-webkit-transform: translateX(0px);
+				-webkit-transition: transform 250ms ease-in-out;
 			}
-			#minimizeServerTab:hover ~ .base-3dtUhz {
-  				padding-left: 72px;
-			}
-			.wrapper-3NnKdC:hover {
-  				width: 72px;
-			}
-			.wrapper-3NnKdC {
+			.wrapper-1_HaEi {
   				height: calc(100% + 52px);				/*~~THESE VALUES MUST REMAIN THE SAME~~ Change px to reduce hitbox height | Default: 52px*/
-  				width: 0px;
-		`);
+				-webkit-transform: translateX(-100%);
+				-webkit-transition: transform 250ms ease-in-out;
+			}
+			`);
 		}
-	}
-
-	stop() {
-		var minimizeServerTab = document.getElementById("minimizeServerTab");
-		var container = document.getElementsByClassName("container-2lgZY8")[0];
-		var wrapped = document.getElementsByClassName("wrapper-3NnKdC guilds-1SWlCJ")[0];
-		container.insertBefore(wrapped, minimizeServerTab);
-		minimizeServerTab.remove();
-		BdApi.clearCSS("MinimizeServerTabCSS");
 	}
 }
