@@ -9,8 +9,8 @@
 
 module.exports = class MinimizeServerSidebar {
 	start() {
-		let serverSidebarWidth = "72px"; 				  /* default:72px | Width of the server sidebar */
 		let sidebarActivationWidth = "50px";		 	  /* default:50px | Width to make the server sidebar pop out */
+		let serverSidebarWidth = "72px"; 				  /* default:72px | Width of the server sidebar */
 		let serverSidebarColor = "rgba(32, 34, 37, 1)";   /* default:rgba(32, 34, 37, 1) | Background color of the server sidebar */ 
 		
 		BdApi.injectCSS("MinimizeServerSidebarCSS",
@@ -22,6 +22,7 @@ module.exports = class MinimizeServerSidebar {
 			z-index: 1000;
 			-webkit-transform: translateX(-${serverSidebarWidth});
 			-webkit-transition: transform 250ms ease-in-out;
+			--background-tertiary: transparent;
 			background: linear-gradient(90deg, ${serverSidebarColor} ${serverSidebarWidth}, transparent ${sidebarActivationWidth});
 		}
 		.guilds-2JjMmN:hover {
